@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>calculator</title>
+        <script>
+         function calculation(jadu){
+             if(jadu=='c'){
+                flex.innerHTML="";
+             } 
+             else{
+                flex.innerHTML+=jadu;
+                if(jadu=='%'||jadu=='/'||jadu=='*'||jadu=='-'||jadu=='+')
+                {
+                    document.getElementById("common1").disabled=true;
+                    document.getElementById("common2").disabled=true;
+                    document.getElementById("common3").disabled=true;
+                    document.getElementById("common4").disabled=true;
+                    document.getElementById("common5").disabled=true;
+                }
+                else
+                {
+                    document.getElementById("common1").disabled=false;
+                    document.getElementById("common2").disabled=false;
+                    document.getElementById("common3").disabled=false;
+                    document.getElementById("common4").disabled=false;
+                    document.getElementById("common5").disabled=false;
+                }
+               if(jadu=='')
+               {var h=eval(flex.innerHTML);
+                flex.innerHTML="";
+                flex.innerHTML+=(h);}
+            }
+         }
+        </script>
+        <style>
+            body{ 
+                display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 text-color:white;
+                 bottom: 50%;
+                 font-size: large;}
+          table{
+              border: 5px solid black;
+              background-image: url(gost.PNG);
+              border-radius:25px;
+              border-spacing: 15px;}
+              input#common0{
+                  width: 220px; }
+              input#common1{
+                    height: 120px;}
+          td{
+              height: 50px;
+              width: 100px;
+              text-align: center;
+              border-radius: 25px; 
+              box-shadow: inset rgb(233, 5, 233);}  
+          input:active{
+              text-size: 200%;
+              background-color: rgb(240, 60, 15);  }
+              input{
+                  font-size: large;
+                height: 50px;
+              width: 100px;
+              border-radius: 25px;
+              border: 2px dashed rgb(216, 8, 19);
+              }
+          td#flex{
+              background-color: rgb(241, 239, 235);
+              text-align: right;
+              font-size: 400%;
+              height: 100px;
+              }
+              input#common,#common1,#common0,#display,#common2,#common3,#common4,#common5{
+                  background-color: rgb(31, 28, 209);
+              }  
+        </style>
+    </head>
+    <body>
+        <table border="2px">
+            <tr >
+                <td colspan="4"  id="flex"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="c" id="common" onclick="calculation('c')"></td>
+                <td><input type="button" value="%" id="common5" onclick="calculation('%')"></td>
+                <td><input type="button" value="/" id="common4" onclick="calculation('/')"></td>
+                <td><input type="button" value="*" id="common3" onclick="calculation('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" id="common" onclick="calculation('7')"></td>
+                <td><input type="button" value="8" id="common" onclick="calculation('8')"></td>
+                <td><input type="button" value="9" id="common" onclick="calculation('9')"></td>
+                <td><input type="button" value="-" id="common2" onclick="calculation('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" id="common" onclick="calculation('4')"></td>
+                <td><input type="button" value="5" id="common" onclick="calculation('5')"></td>
+                <td><input type="button" value="6" id="common" onclick="calculation('6')"></td>
+                <td rowspan="2"><input type="button" value="+" id="common1" onclick="calculation('+')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" id="common" onclick="calculation('1')"></td>
+                <td><input type="button" value="2" id="common" onclick="calculation('2')"></td>
+                <td><input type="button" value="3" id="common" onclick="calculation('3')"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="0" id="common0" onclick="calculation('0')"></td>
+                <td><input type="button" value="." id="common" onclick="calculation('.')"></td>
+                <td><input type="button" value="=" id="display" onclick="calculation('')"></td>
+            </tr>
+        </table>
+    </body>
+</html>
